@@ -52,6 +52,8 @@ table, th, td{
     border-collapse: collapse;
     border:1px solid skyblue;
     vertical-align: top;
+
+    
 }
 
 tr, th, td{
@@ -71,3 +73,6 @@ td{
 td:hover{
     background: gray;
 }
+
+/* Header */
+
