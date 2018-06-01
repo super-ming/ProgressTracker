@@ -1,93 +1,126 @@
-var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-var showNextMonth = 1;
-var thisMonth = document.getElementById('monthName');
+let monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+let thisMonth = document.getElementById('monthName');
+let tableGrid = document.getElementById('dates');
+let monthNum = new Date();
+let showMonth = monthNum.getMonth();
 
-thisMonth.innerHTML = monthArray[0];
+thisMonth.innerHTML = monthArray[showMonth] + ' ' + monthNum.getFullYear();
 
 function nextMonth() {
-  if (showNextMonth < monthArray.length) {
-    thisMonth.innerHTML = monthArray[showNextMonth];
-    showNextMonth++;
+  if (showMonth+1 < monthArray.length) {
+    showMonth++;
   } else {
-    showNextMonth = 0;
+    showMonth = 0;
+    monthNum.setYear(monthNum.getFullYear()+1,0,1);
   }
+  thisMonth.innerHTML = monthArray[showMonth] + ' ' + monthNum.getFullYear();
 };
 
 function prevMonth() {
-  if (showNextMonth < monthArray.length) {
-    thisMonth.innerHTML = monthArray[showNextMonth];
-    --showNextMonth;
+  if (showMonth-1 >= 0) {
+    showMonth--;
   } else {
-    showNextMonth = 0;
+    showMonth = 11;
+    monthNum.setYear(monthNum.getFullYear()-1,11,31)
   }
+  thisMonth.innerHTML = monthArray[showMonth] + ' ' + monthNum.getFullYear();
+};
+
+function makeGrid() {
+    //set the first day of month as 1
+    let firstDay = new Date(monthNum.getFullYear(),monthNum.getMonth(),1);
+    //Get the last day of the month by setting month to next month and day as 0
+    let lastDay = new Date(monthNum.getFullYear(),monthNum.getMonth()+1,0);
+    let dayOfWeek = firstDay.getDay();
+    let day = firstDay.getDate();
+    let count = 0;
+    for(let i=0; i<5; i++){
+        const tr = document.createElement('tr');
+        tableGrid.appendChild(tr);
+            for(let j=0; j<7; j++){
+                const td = document.createElement('td');
+                tr.appendChild(td);
+                count++;
+                if (count = dayOfWeek){
+                    td.innerHTML = day;
+
+                }
+
+
+            }
+        }
 };
 
 
-// window.onload = function(){
-//   var d = new Date();
-//   var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-//   var month = d.getMonth();   //0-11
-//   var year = d.getFullYear(); //2014
-//   var first_date = month_name[month] + " " + 1 + " " + year;
-//   //September 1 2014
-//   var tmp = new Date(first_date).toDateString();
-//   //Mon Sep 01 2014 ...
-//   var first_day = tmp.substring(0, 3);    //Mon
-//   var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-//   var day_no = day_name.indexOf(first_day);   //1
-//   var days = new Date(year, month+1, 0).getDate();    //30
-//   //Tue Sep 30 2014 ...
-//   var calendar = get_calendar(day_no, days);
-//   document.getElementById("month").innerHTML = month_name[month]+" "+year;
-//   document.getElementById("dates").appendChild(calendar);
-// }
 
-// function get_calendar(day_no, days){
-//   var table = document.createElement('table');
-//   var tr = document.createElement('tr');
-//   //row for the day letters
-//   for(var c=0; c<=6; c++){
-//       var td = document.createElement('td');
-//       td.innerHTML = "SMTWTFS"[c];
-//       tr.appendChild(td);
-//   }
-//   table.appendChild(tr);
+makeGrid();
+/* window.onload = function(){
+   var d = new Date();
+   var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+   var month = d.getMonth();   //0-11
+   var year = d.getFullYear(); //2014
+   var first_date = month_name[month] + " " + 1 + " " + year;
+   //September 1 2014
+   var tmp = new Date(first_date).toDateString();
+//   //Mon Sep 01 2014 ...
+   var first_day = tmp.substring(0, 3);    //Mon
+   var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+   var day_no = day_name.indexOf(first_day);   //1
+   var days = new Date(year, month+1, 0).getDate();    //30
+//   //Tue Sep 30 2014 ...
+   var calendar = get_calendar(day_no, days);
+   document.getElementById("month").innerHTML = month_name[month]+" "+year;
+   document.getElementById("dates").appendChild(calendar);
+ }
+
+
+ function get_calendar(day_no, days){
+   let table = document.createElement('table');
+   let tr = document.createElement('tr');
+   //row for the day letters
+   for(let c=0; c<=6; c++){
+       let td = document.createElement('td');
+       td.innerHTML = "SMTWTFS"[c];
+       tr.appendChild(td);
+   }
+   table.appendChild(tr);
 
 //   //create 2nd row
-//   tr = document.createElement('tr');
-//   var c;
-//   for(c=0; c<=6; c++){
-//       if(c == day_no){
-//           break;
-//       }
-//       var td = document.createElement('td');
-//       td.innerHTML = "";
-//       tr.appendChild(td);
-//   }
+   tr = document.createElement('tr');
+   let c;
+   for(c=0; c<=6; c++){
+       if(c == day_no){
+           break;
+       }
+       let td = document.createElement('td');
+       td.innerHTML = "";
+       tr.appendChild(td);
+   }
 
-//   var count = 1;
-//   for(; c<=6; c++){
-//       var td = document.createElement('td');
-//       td.innerHTML = count;
-//       count++;
-//       tr.appendChild(td);
-//   }
-//   table.appendChild(tr);
+   let count = 1;
+   for(; c<=6; c++){
+       let td = document.createElement('td');
+       td.innerHTML = count;
+       count++;
+       tr.appendChild(td);
+   }
+   table.appendChild(tr);
 
-//   //rest of the date rows
-//   for(var r=3; r<=7; r++){
-//       tr = document.createElement('tr');
-//       for(var c=0; c<=6; c++){
-//           if(count > days){
-//               table.appendChild(tr);
-//               return table;
-//           }
-//           var td = document.createElement('td');
-//           td.innerHTML = count;
-//           count++;
-//           tr.appendChild(td);
-//       }
-//       table.appendChild(tr);
-//   }
-//   return table;
-// }
+//   rest of the date rows
+   for(let r=3; r<=7; r++){
+       tr = document.createElement('tr');
+       for(let c=0; c<=6; c++){
+           if(count > days){
+               table.appendChild(tr);
+               return table;
+           }
+           let td = document.createElement('td');
+           td.innerHTML = count;
+           count++;
+           tr.appendChild(td);
+       }
+       table.appendChild(tr);
+   }
+   return table;
+ }
+*/

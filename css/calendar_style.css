@@ -43,6 +43,9 @@ ul{
 }
 
 /* Table with Days and Dates */
+.cal-grid{
+    display: grid;
+}
 
 table, th, td{
     width: 100%;
@@ -53,7 +56,7 @@ table, th, td{
     border:1px solid skyblue;
     vertical-align: top;
 
-    
+
 }
 
 tr, th, td{
@@ -75,4 +78,14 @@ td:hover{
 }
 
 /* Header */
+.cal-header{
+    text-align: center;
+    background-color: green;
+    display: flex;
+}
 
+.cal-header span{
+    width: 14.28%;
+    background-color: gray;
+    box-sizing: border-box;
+}
