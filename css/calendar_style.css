@@ -35,11 +35,21 @@ ul{
 .month .prev {
     float: left;
     padding-top: 10px;
+    text-decoration: none;
+}
+
+.prev a {
+    text-decoration: none;
 }
 
 .month .next {
     float: right;
     padding-top: 10px;
+    text-decoration: none;
+}
+
+.next a {
+    text-decoration: none;
 }
 
 /* Table with Days and Dates */
