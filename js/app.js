@@ -48,18 +48,31 @@ function makeGrid() {
         const tr = document.createElement('tr');
         tableGrid.appendChild(tr);
         week++;
-            for(let j=0; j<7; j++){
-                const td = document.createElement('td');
-                tr.appendChild(td);
-                count++;
-                if ((week == 1 && count == dayOfWeek+1) || (week == 1 && count > dayOfWeek+1)) {
-                    td.innerHTML = day;
-                    day++;
+        for(let j=0; j<7; j++){
+            const td = document.createElement('td');
+            tr.appendChild(td);
+            count++;
+            if ((week == 1 && count >= dayOfWeek+1)) {
+                td.innerHTML = day;
+                day++;
             } else if (week > 1 && count <= lastDay.getDate()){
                 count = day;
                 td.innerHTML = day;
                 day++;
             }
+        }
+    }
+    if (day-1 < lastDay.getDate() && week == 5){
+        day--;
+        const tr = document.createElement('tr');
+        tableGrid.appendChild(tr);
+        for(let s=0; s<7; s++){
+            const td = document.createElement('td');
+            tr.appendChild(td);
+            if (day < lastDay.getDate()){
+                day++;
+                td.innerHTML = day;
+            }    
         }
     }
 }
