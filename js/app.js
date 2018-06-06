@@ -52,9 +52,13 @@ function makeGrid() {
                 const td = document.createElement('td');
                 tr.appendChild(td);
                 count++;
-                if ((week == 1 && count == dayOfWeek+1) || (week == 1 && count > dayOfWeek+1) ||(week > 1 && count <= lastDay.getDate()+6)) {
+                if ((week == 1 && count == dayOfWeek+1) || (week == 1 && count > dayOfWeek+1)) {
                     td.innerHTML = day;
                     day++;
+            } else if (week > 1 && count <= lastDay.getDate()){
+                count = day;
+                td.innerHTML = day;
+                day++;
             }
         }
     }
