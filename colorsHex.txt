@@ -1,0 +1,5 @@
+#FDCE34 yellow
+#EBE3DE beige
+#006A92 dark blue
+#4D5F6C dark bluish gray
+#6597B2 light blue
