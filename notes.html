@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <link rel="stylesheet" href="css/page_styles.css">
-    <link rel="stylesheet" href="css/notes_page_style.css">
-    <link rel="stylesheet" href="css/notes_style.css">
+    <!-- <link rel="stylesheet" href="css/notes_page_style.css">
+    <link rel="stylesheet" href="css/notes_style.css"> -->
 </head>
 <body>
     <div class="tabs">
@@ -24,7 +24,7 @@
                     <h4 id="noteTitle">Note 1</h4>
                     <h4 id="score">Score 9/10</h4>
                     <input type="text" id="input">
-                    <a href="#" onclick="newElement()" class="addBtn">&#10010;</a>
+                    <a href="#" onclick="newElement()" class="addBtn" id="addBtn">&#10010;</a>
                     <ul id="myUL"></ul>
                 </div>
             </div>
@@ -43,16 +43,16 @@
         /* Create a close button */
         var myNodeList = document.getElementsByTagName("LI");
         var i;
-        for (i = 0; i < myNodelist.length; i++){
+        for (i = 0; i < myNodeList.length; i++){
             var span = document.createElement("SPAN");
-            // var txt = document.createTextNode("\u00D7");
+            var txt = document.createTextNode("\u00D7");
             span.className = "close";
-            // span.appendChild(txt);
+            span.appendChild(txt);
             myNodeList[i].appendChild(span);
         }
 
         /* Action for the close button */
-        var close = document.getElementById("close");
+        var close = document.getElementsByClassName("close");
         var i;
         for (i = 0; i < close.length; i++){
             close[i].onclick = function(){
@@ -74,9 +74,9 @@
         }
         document.getElementById("input").value = "";
         var span = document.createElement("SPAN");
-        // var txt = document.createTextNode("\u00D7");
+        var txt = document.createTextNode("\u00D7");
         span.className = "close";
-        // span.appendChild(txt);
+        span.appendChild(txt);
         li.appendChild(span);
 
         for(i=0; i < close.length; i++){
@@ -86,6 +86,15 @@
             }
         }
     }
+
+    // var input = document.getElementById("input");
+
+    // input.addEventListener("keypress", function(event){
+    //     event.preventDefault();
+    //     if(event === 13) {
+    //         document.getElementById("addBtn").click();
+    //     }
+    // });
     
     </script>
 </body>

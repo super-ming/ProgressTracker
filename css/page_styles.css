@@ -104,3 +104,12 @@ input {
     text-decoration: none;
     color: black;
 }
+
+.close {
+    padding-left: 100px;
+    cursor: pointer;
+}
+
+.close:hover{
+    color: red;
+}
