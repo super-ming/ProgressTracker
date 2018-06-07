@@ -93,3 +93,14 @@ div.tabs #goals-tab:focus{
 div.tabs #notes-tab:focus{
     background-color: #6597B2;
 }
+
+input {
+    background-color: transparent;
+    border: 1px solid black;
+    width: 90%;
+}
+
+.addBtn{
+    text-decoration: none;
+    color: black;
+}
