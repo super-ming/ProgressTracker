@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <link rel="stylesheet" href="css/page_styles.css">
+    <link rel="stylesheet" href="css/notes_page_style.css">
+    <link rel="stylesheet" href="css/notes_style.css">
 </head>
 <body>
-
-    <main>
+    <div class="tabs">
+        <button id="calendar-tab">Calendar</button>
+        <button id="goals-tab">Goals</button>
+        <button id="notes-tab">Notes</button>
+    </div>
+    <div class="tab-content" id="notes-page">
         <h2 class="date">May 05, 2018</h2>
         <hr>
         <section>
@@ -32,7 +38,7 @@
                 </div>
             </div>      
             </section>
-    </main>
+        </div>
     <script>
         /* Create a close button */
         var myNodeList = document.getElementsByTagName("LI");
