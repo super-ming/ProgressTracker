@@ -4,7 +4,13 @@
     margin-bottom: 10px;
 }
 
+body {
+    margin: 0;
+}
 
+body div.tab-content{
+    margin: 12px;
+}
 
 footer {
     background-color: #42f44b;
@@ -51,4 +57,39 @@ footer {
 }
 section{
     padding-top: 30px;
+}
+
+div.tabs {
+    height: 55px;
+    width: 100%;
+    background-color: #4D5F6C;
+    margin: 0;
+}    
+
+div.tabs  button{
+    background-color: inherit;
+    float: left;
+    text-align: center;
+    height: 100%;
+    width: 33.333%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+    font-family: Lato;
+    
+    font-size: 28px;
+    color: #EBE3DE;
+}
+
+div.tabs #calendar-tab:focus{
+    background-color: #006a92;
+}
+
+div.tabs #goals-tab:focus{
+    background-color: #FDCE34;
+}
+
+div.tabs #notes-tab:focus{
+    background-color: #6597B2;
 }
