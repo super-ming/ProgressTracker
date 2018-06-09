@@ -28,12 +28,13 @@
     <style>
         .tab {
             overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
+            /* border: 1px solid #ccc; */
+            /* background-color: #f1f1f1; */
+           
         }
 
         .tab button {
-            background-color: inherit;
+            background-color: #ccc;
             float: left;
             border: none;
             outline: none;
@@ -41,6 +42,9 @@
             padding: 14px 16px;
             transition: 0.3s;
             font-size: 17px;
+            border-top-left-radius: 1.25rem;
+            border-top-right-radius: 1.25rem;
+            width: 25%;
         }
 
         .tab button:hover {
@@ -49,6 +53,7 @@
 
         .tab button.active {
             background-color: #ccc;
+            
         }
 
         .tabcontent {
