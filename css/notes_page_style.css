@@ -58,7 +58,8 @@ div.modal-content{
     margin: 15px auto;
     border: 0.5px solid #888;
     border-radius: 15px;
-    box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #333;
+    
 }
 
 div.modal-content *{ 
