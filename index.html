@@ -2,35 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>ProgressTracker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <link rel="stylesheet" href="css/page_styles.css">
-  <link rel="stylesheet" href="css/calendar_style.css">
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      <h1>Progress Tracker</h1>
-    </header>
-
-    <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>ProgressTracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/page_styles.css">
+    <link rel="stylesheet" href="css/calendar_style.css">
     <style>
         .tab {
             overflow: hidden;
             /* border: 1px solid #ccc; */
             /* background-color: #f1f1f1; */
-           
         }
 
         .tab button {
@@ -53,7 +35,7 @@
 
         .tab button.active {
             background-color: #ccc;
-            
+
         }
 
         .tabcontent {
@@ -62,91 +44,96 @@
             border-top: none;
         }
     </style>
-    
 </head>
 
 <body>
-    <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'calendar')">Calendar</button>
-        <button class="tablinks" onclick="openTab(event, 'notes')">Notes</button>
-        <button class="tablinks" onclick="openTab(event, 'goals')">Goals</button>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Progress Tracker</h1>
+        </header>
     </div>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'calendar')">Calendar</button>
+            <button class="tablinks" onclick="openTab(event, 'notes')">Notes</button>
+            <button class="tablinks" onclick="openTab(event, 'goals')">Goals</button>
+        </div>
 
-    <div class="tabcontent" id="calendar">
+        <div class="tabcontent" id="calendar">
             <div class="container">
-                    <!-- Month Header -->
-                    <div class="month">
-                      <ul>
-                        <li class="prev"><a href="#"> &#8678;</a></li>
-                        <li class="next"><a href="#"> &#8680;</a></li>
+                <!-- Month Header -->
+                <div class="month">
+                    <ul>
+                        <li class="prev">
+                            <a href="#"> &#8678;</a>
+                        </li>
+                        <li class="next">
+                            <a href="#"> &#8680;</a>
+                        </li>
                         <li id="monthName"></li>
-                      </ul>
-                    </div>
-                    <div class="cal-header">
-                        <span>SUNDAY</span>
-                        <span>MONDAY</span>
-                        <span>TUESDAY</span>
-                        <span>WEDNESDAY</span>
-                        <span>THURSDAY</span>
-                        <span>FRIDAY</span>
-                        <span>SATURDAY</span>
-                    </div>
-                    <!-- Days of the Week -->
-                    <div class="cal-grid">
-                        <table id= "dates">
-                            </table>
+                    </ul>
+                </div>
+                <div class="cal-header">
+                    <span>SUNDAY</span>
+                    <span>MONDAY</span>
+                    <span>TUESDAY</span>
+                    <span>WEDNESDAY</span>
+                    <span>THURSDAY</span>
+                    <span>FRIDAY</span>
+                    <span>SATURDAY</span>
+                </div>
+                <!-- Days of the Week -->
+                <div class="cal-grid">
+                    <table id="dates">
+                    </table>
 
-                        </div>
-                      </div>
-    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="tabcontent" id="notes">
+        <div class="tabcontent" id="notes">
             <h2 class="date">May 05, 2018</h2>
             <hr>
             <section>
                 <div class="card" id="note1">
                     <div class="container">
-                        <h4 id="noteTitle">Note 1</h4>
-                        <h4 id="score">Score 9/10</h4>
+                        <h4 class="noteTitle">Note 1</h4>
+                        <h4 class="score">Score 9/10</h4>
                         <p>This will be the body of the note</p>
                     </div>
                 </div>
                 <div class="card" id="note2">
                     <div class="container">
-                        <h4 id="noteTitle">Note 2</h4>
-                        <h4 id="score">Score 9/10</h4>
+                        <h4 class="noteTitle">Note 2</h4>
+                        <h4 class="score">Score 9/10</h4>
                         <p>This will be the body of the next note</p>
                     </div>
-                </div>      
-                </section>
-    </div>
+                </div>
+            </section>
+        </div>
 
-    <div class="tabcontent" id="goals">
-        <h1>Goals</h1>
-    </div>
-    <script src="js/app.js"></script>
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
+        <div class="tabcontent" id="goals">
+            <h1>Goals</h1>
+        </div>
+        <script src="js/app.js"></script>
+        <script>
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
 
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className.replace(" active", "");
-            }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className.replace(" active", "");
+                }
 
-            document.getElementById(tabName).style.display = "block";
+                document.getElementById(tabName).style.display = "block";
                 evt.currentTarget.className += " active";
-        }
+            }
 
 
-    </script>
-</body>
-
-</html>
+        </script>
 </body>
 
 </html>

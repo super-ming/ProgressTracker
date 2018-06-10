@@ -35,11 +35,11 @@ footer {
     padding: 2px 16px;
 }
 
-#noteTitle{
+.noteTitle{
     padding: 10px;
 }
 
-#score {
+.score {
     position: absolute;
     top: 0px;
     right: 0px;
