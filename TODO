@@ -3,5 +3,5 @@ Todo:
   [] save user input and create new note object and save it in the local storage
   [] display saved note
   [] modify the progress line chart in the corresponding goal page
-  [] update the goals page according to the goals created on the fly from the modal input "add label"
+  [] update the goals page according to the goals created on the fly from the modal input "select goal"
   [] update the dropdown list of goals when creating a new note through the modal
