@@ -53,24 +53,23 @@ ul{
 }
 
 /* Table with Days and Dates */
-.cal-grid{
-    display: grid;
-}
-
-table, th, td{
+table {
     width: 100%;
     table-layout: fixed;
     text-align: left;
     font-size: 17px;
     border-collapse: collapse;
-    border:1px solid skyblue;
-    vertical-align: top;
-
-
 }
+
 
 tr, th, td{
     padding: 15px;
+}
+
+#dates > tr > td {
+    width: 14.28%;
+    border:1px solid skyblue;
+    vertical-align: top;
 }
 
 th{
