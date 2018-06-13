@@ -23,15 +23,15 @@
             <div class="modal-content">
                 <form> 
                     <header class="modal-header">
-                        <input type="text" name="title" placeholder="Title">
-                        <input type="number" name="score" placeholder="Score">
+                        <input type="text" name="title" id="title" placeholder="Title">
+                        <input type="number" name="score" id="noteScore" placeholder="Score">
                     </header>
-                    <textarea name="noteBody" required placeholder="jot down your note here..."></textarea>
+                    <textarea name="noteBody" id="noteBody" required placeholder="jot down your note here..."></textarea>
                     <footer class="modal-footer">
-                        <input type="text" name="select-goal" list="goals" placeholder="select a goal">
+                        <input type="text" name="select-goal" id="select-goal" list="goals" placeholder="select a goal">
                         <!--the datalist will be filled using js-->
                         <datalist id="goals"></datalist>
-                        <input type="text" name="select-labels" list="labels" placeholder="add labels">
+                        <input type="text" name="select-labels" id="add-labels" list="labels" placeholder="add labels">
                         <!--the datalist will be filled using js-->
                         <datalist id="labels"></datalist>
                         <br><br>
