@@ -1,0 +1,11 @@
+div#goals-page{
+  margin: 60px 100px;
+}
+
+div#goals-page #add-goal-btn{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  float: right;
+  cursor: pointer;
+}
