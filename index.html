@@ -110,28 +110,10 @@
                 </div>
             </section>
         </div>
-
-        <div class="tabcontent" id="goals">
-            <h1>Goals</h1>
-        </div>
-        <script src="js/app.js"></script>
-        <script>
-            function openTab(evt, tabName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className.replace(" active", "");
-                }
-
-                document.getElementById(tabName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-
+        <!-- Days of the Week -->
+        <div class="cal-grid">
+            <table id= "dates">
+            </table>
 
         </script>
 </body>

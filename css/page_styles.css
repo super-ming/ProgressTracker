@@ -6,14 +6,10 @@
 
 body {
     margin: 0;
-}
-
-body div.tab-content{
-    margin: 12px;
+    background-color: #EBE3DE;
 }
 
 footer {
-    background-color: #42f44b;
     margin-top: 10px;
 }
 
@@ -59,12 +55,18 @@ section{
     padding-top: 30px;
 }
 
+/*Styling the tabs***********************************/
+
 div.tabs {
     height: 55px;
     width: 100%;
     background-color: #4D5F6C;
     margin: 0;
 }    
+
+body div.tab-content{
+    margin: 12px;
+}
 
 div.tabs  button{
     background-color: inherit;
@@ -93,6 +95,8 @@ div.tabs #goals-tab:focus{
 div.tabs #notes-tab:focus{
     background-color: #6597B2;
 }
+
+/**********************************************************/
 
 input {
     background-color: transparent;

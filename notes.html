@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ProgressTracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/page_styles.css">
+    <link rel="stylesheet" href="css/notes_page_style.css">
+    <link rel="stylesheet" href="css/notes_style.css"> 
+</head>
+<body> 
+    <div class="tabs">
+        <button id="calendar-tab">Calendar</button>
+        <button id="goals-tab">Goals</button>
+        <button id="notes-tab">Notes</button>
+    </div>
+    <div class="tab-content" id="notes-page">
+        <button type="button" id="add-note-btn"><img src="css/add-text-notes.png" alt="Add a new note" height="42" width="42"></button>
+        <h3 id="date">Date</h3>
+        <!--Add Note Modal-->
+        <div id="add-note-modal">
+            <div class="modal-content">
+                <form> 
+                    <header class="modal-header">
+                        <input type="text" name="title" id="title" placeholder="Title">
+                        <input type="number" name="score" id="noteScore" placeholder="Score">
+                    </header>
+                    <textarea name="noteBody" id="noteBody" required placeholder="jot down your note here..."></textarea>
+                    <footer class="modal-footer">
+                        <input type="text" name="select-goal" id="select-goal" list="goals" placeholder="select a goal">
+                        <!--the datalist will be filled using js-->
+                        <datalist id="goals"></datalist>
+                        <input type="text" name="select-labels" id="add-labels" list="labels" placeholder="add labels">
+                        <!--the datalist will be filled using js-->
+                        <datalist id="labels"></datalist>
+                        <br><br>
+                        <button type="submit" id="create-note">Create note</button>
+                        <button type="button" id="cancel">Cancel</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/notes.js"></script>
+</body>
+</html>
