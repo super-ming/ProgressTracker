@@ -38,7 +38,7 @@ createNoteBtn.onclick = function() {
     let s = document.createElement("h3");
     s.id = "note-score";
     let scorevalue = document.createTextNode(noteScore);
-    s.appendChild(s);
+    s.appendChild(scorevalue);
     let header = document.createElement("header");
     header.id = "note-header";
     header.appendChild(t);
@@ -78,7 +78,7 @@ createNoteBtn.onclick = function() {
     newNote.appendChild(footer);
     let notesPage = document.getElementById("notes-page");
     notesPage.appendChild(newNote);
-    // TODO update the labels list in the notes.html 
+    // TODO update the labels list in the notes.html
     // TODO update the goals page: 1/update the goals line chart 2/if a goal is created on the fly from the notes page while creating a new note add the new goal to the goals page and the goals array in the localStorage
     // hide modal
     modal.style.display = "none";
@@ -93,10 +93,10 @@ window.onclick = function(event) {
 
 // saving the note
 function saveNote(note){
-    letnotes = [];
+    let notes = [];
     if(localStorage.getItem("notes") !== null){
-        notes = JSON.parse(localStorage.getItem('notes')); 
-    } 
+        notes = JSON.parse(localStorage.getItem('notes'));
+    }
     //add note
     notes.push(note);
     //store back the array in the localStorage
