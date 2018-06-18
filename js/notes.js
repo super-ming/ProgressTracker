@@ -78,9 +78,10 @@ createNoteBtn.onclick = function(e) {
     newNote.appendChild(footer);
     let notesPage = document.getElementById("notes-page");
     notesPage.appendChild(newNote);
-    
+    // TODO update the labels list in the notes.html
+    // TODO update the goals page: 1/update the goals line chart 2/if a goal is created on the fly from the notes page while creating a new note add the new goal to the goals page and the goals array in the localStorage
+    // hide modal
     modal.style.display = "none";
-    e.preventDefault();
 }
 
 // When the user clicks anywhere outside of the modal, close it
