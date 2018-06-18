@@ -11,12 +11,27 @@
 <body>
   <div class="tab-content" id="goals-page">
     <button type="button" id="add-goal-btn"><img src="css/add-text-notes.png" alt="Add a new goal" height="42" width="42"></button>
+    <!-- Goals Modal -->
+    <div id="add-goals-modal">
+      <div class="modal-content">
+        <form>
+          <header class="modal-header">
+            <input type="text" name="duration" id="duration" placeholder="Duration">
+            <input type="number" name="from" id="from" placeholder="From">
+            <input type="number" name="to" id="to" placeholder="To">
+            <input type="text" name="successCriteria" id="criteria" placeholder="Criteria">
+            <input type="number" name="highScore" id="highScore" placeholder="High Score">
+            <input type="number" name="lowScore" id="lowScore" placeholder="Low Score">
+          </header>
+        </form>
+      </div>"
+    </div>
   </div>
     <aside>
     </aside>
 
     <main>
     </main>
-
+  <script src="js/goals.js"></script>
 </body>
 </html>
