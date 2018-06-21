@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="css/page_styles.css">
     <link rel="stylesheet" href="css/calendar_style.css">
+    <link rel="stylesheet" href="css/notes_page_style.css">
+    <link rel="stylesheet" href="css/notes_style.css">
     <style>
         .tab {
             overflow: hidden;
@@ -54,7 +56,7 @@
     </div>
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'calendar')">Calendar</button>
-            <button class="tablinks" onclick="openTab(event, 'notes')">Notes</button>
+            <button class="tablinks" onclick="openTab(event, 'notes-page')">Notes</button>
             <button class="tablinks" onclick="openTab(event, 'goals')">Goals</button>
         </div>
 
@@ -90,30 +92,43 @@
             </div>
         </div>
 
-        <div class="tabcontent" id="notes">
-            <h2 class="date">May 05, 2018</h2>
-            <hr>
-            <section>
-                <div class="card" id="note1">
-                    <div class="container">
-                        <h4 class="noteTitle">Note 1</h4>
-                        <h4 class="score">Score 9/10</h4>
-                        <p>This will be the body of the note</p>
-                    </div>
-                </div>
-                <div class="card" id="note2">
-                    <div class="container">
-                        <h4 class="noteTitle">Note 2</h4>
-                        <h4 class="score">Score 9/10</h4>
-                        <p>This will be the body of the next note</p>
-                    </div>
-                </div>
-            </section>
+        <div class="tabcontent" id="notes-page">
+          
+        <button type="button" id="add-note-btn"><img src="css/add-text-notes.png" alt="Add a new note" height="42" width="42"></button>
+        <h3 id="date">Date</h3>
+        <!--Add Note Modal-->
+        <div id="add-note-modal">
+            <div class="modal-content">
+                <form> 
+                    <header class="modal-header">
+                        <input type="text" name="title" id="title" placeholder="Title">
+                        <input type="number" name="score" id="noteScore" placeholder="Score">
+                    </header>
+                    <textarea name="noteBody" id="noteBody" required placeholder="jot down your note here..."></textarea>
+                    <footer class="modal-footer">
+                        <input type="text" name="select-goal" id="select-goal" list="goals" placeholder="select a goal">
+                        <!--the datalist will be filled using js-->
+                        <datalist id="goals"></datalist>
+                        <input type="text" name="select-labels" id="add-labels" list="labels" placeholder="add labels">
+                        <!--the datalist will be filled using js-->
+                        <datalist id="labels"></datalist>
+                        <br><br>
+                        <button type="button" id="create-note">Create note</button>
+                        <button type="reset" id="cancel">Cancel</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/notes.js"></script>
+</body>
+</html>
         </div>
 
         <div class="tabcontent" id="goals">
             <h1>Goals</h1>
         </div>
+        <script src="js/notes.js"></script>
         <script src="js/app.js"></script>
         <script>
             function openTab(evt, tabName) {
@@ -131,8 +146,6 @@
                 document.getElementById(tabName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
-
-
         </script>
 </body>
 
