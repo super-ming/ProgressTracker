@@ -55,6 +55,10 @@ section{
     padding-top: 30px;
 }
 
+#noteDate {
+    display: none;
+}
+
 /*Styling the tabs***********************************/
 
 div.tabs {
@@ -62,7 +66,7 @@ div.tabs {
     width: 100%;
     background-color: #4D5F6C;
     margin: 0;
-}    
+}
 
 body div.tab-content{
     margin: 12px;
@@ -93,6 +97,41 @@ div.tabs #goals-tab:focus{
 
 div.tabs #notes-tab:focus{
     background-color: #6597B2;
+}
+
+.tab {
+    overflow: hidden;
+    /* border: 1px solid #ccc; */
+    /* background-color: #f1f1f1; */
+}
+
+.tab button {
+    background-color: #ccc;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
+    width: 25%;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
 }
 
 /**********************************************************/

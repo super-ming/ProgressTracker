@@ -10,42 +10,6 @@
     <link rel="stylesheet" href="css/calendar_style.css">
     <link rel="stylesheet" href="css/notes_page_style.css">
     <link rel="stylesheet" href="css/notes_style.css">
-    <style>
-        .tab {
-            overflow: hidden;
-            /* border: 1px solid #ccc; */
-            /* background-color: #f1f1f1; */
-        }
-
-        .tab button {
-            background-color: #ccc;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-            border-top-left-radius: 1.25rem;
-            border-top-right-radius: 1.25rem;
-            width: 25%;
-        }
-
-        .tab button:hover {
-            background-color: #ddd;
-        }
-
-        .tab button.active {
-            background-color: #ccc;
-
-        }
-
-        .tabcontent {
-            display: none;
-            padding: 6px 12px;
-            border-top: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -96,15 +60,16 @@
         <!-- NOTES -->
 
         <div class="tabcontent" id="notes-page">
-          
+
         <button type="button" id="add-note-btn"><img src="css/add-text-notes.png" alt="Add a new note" height="42" width="42"></button>
         <h3 id="date">Date</h3>
         <!--Add Note Modal-->
         <div id="add-note-modal">
             <div class="modal-content">
-                <form> 
+                <form id="noteSubmit">
                     <header class="modal-header">
                         <input type="text" name="title" id="title" placeholder="Title">
+                        <input type="date" name="noteDate" id="noteDate">
                         <input type="number" name="score" id="noteScore" placeholder="Score">
                     </header>
                     <textarea name="noteBody" id="noteBody" required placeholder="jot down your note here..."></textarea>
@@ -115,8 +80,9 @@
                         <input type="text" name="select-labels" id="add-labels" list="labels" placeholder="add labels">
                         <!--the datalist will be filled using js-->
                         <datalist id="labels"></datalist>
+
                         <br><br>
-                        <button type="button" id="create-note">Create note</button>
+                        <button type="submit" id="create-note">Create note</button>
                         <button type="reset" id="cancel">Cancel</button>
                     </footer>
                 </form>
@@ -124,29 +90,6 @@
         </div>
     </div>
     <script src="js/notes.js"></script>
+    <script src="js/app.js"></script>
 </body>
-</html>
-        </div>
-
-        <script src="js/notes.js"></script>
-        <script src="js/app.js"></script>
-        <script>
-            function openTab(evt, tabName) {
-                let i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className.replace(" active", "");
-                }
-
-                document.getElementById(tabName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-        </script>
-</body>
-
 </html>

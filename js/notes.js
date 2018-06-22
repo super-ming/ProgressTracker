@@ -5,6 +5,8 @@ addNoteBtn = document.getElementById('add-note-btn');
 createNoteBtn = document.getElementById("create-note");
 
 cancelBtn = document.getElementById("cancel");
+let noteSubmit = document.getElementById("noteSubmit");
+document.getElementById("noteDate").value = new Date();
 
 addNoteBtn.onclick = function() {
     modal.style.display = "block";
@@ -14,19 +16,22 @@ cancelBtn.onclick = function() {
     modal.style.display = "none";
 }
 
-createNoteBtn.onclick = function(e) {
+noteSubmit.onsubmit = function(e) {
+    e.preventDefault();
     let noteTitle = document.getElementById("title").value;
     let noteScore = document.getElementById("noteScore").value;
     let noteText = document.getElementById("noteBody").value;
     let noteGoal = document.getElementById("select-goal").value;
     // for the moment multiple labels aren't handled
     let noteLabel = document.getElementById("add-labels").value;
+    let noteDate = document.getElementById("noteDate").value;
     let note = {
         title: noteTitle,
         score: noteScore,
         text: noteText,
         goal: noteGoal,
-        label: noteLabel
+        label: noteLabel,
+        date: noteDate
     }
     saveNote(note);
     // TODO display the note in the notes page
@@ -103,3 +108,12 @@ function saveNote(note){
     localStorage.setItem('notes', JSON.stringify(notes));
 }
 
+//fetch saved notes
+function fetchNotes(){
+    //get notes details from localStorage
+    let notes = JSON.parse(localStorage.getItem('notes'));
+    for (i=0; i < notes.length; i++){
+        var title = notes[i].title;
+
+    }
+}
