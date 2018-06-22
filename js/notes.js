@@ -1,10 +1,10 @@
-let modal = document.getElementById("add-note-modal");
+modal = document.getElementById("add-note-modal");
 
-let addNoteBtn = document.getElementById('add-note-btn');
+addNoteBtn = document.getElementById('add-note-btn');
 
-let createNoteBtn = document.getElementById("create-note");
+createNoteBtn = document.getElementById("create-note");
 
-let cancelBtn = document.getElementById("cancel");
+cancelBtn = document.getElementById("cancel");
 
 addNoteBtn.onclick = function() {
     modal.style.display = "block";
@@ -14,7 +14,7 @@ cancelBtn.onclick = function() {
     modal.style.display = "none";
 }
 
-createNoteBtn.onclick = function() {
+createNoteBtn.onclick = function(e) {
     let noteTitle = document.getElementById("title").value;
     let noteScore = document.getElementById("noteScore").value;
     let noteText = document.getElementById("noteBody").value;
@@ -102,3 +102,4 @@ function saveNote(note){
     //store back the array in the localStorage
     localStorage.setItem('notes', JSON.stringify(notes));
 }
+

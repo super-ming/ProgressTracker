@@ -72,7 +72,7 @@ function makeGrid() {
             if (day < lastDay.getDate()){
                 day++;
                 td.innerHTML = day;
-            }    
+            }
         }
     }
 }
