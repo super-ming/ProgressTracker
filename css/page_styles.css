@@ -24,7 +24,7 @@ footer {
 }
 
 .card:hover{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(24, 24, 22, 0.44);
 }
 
 .container{
@@ -57,6 +57,14 @@ section{
 
 #noteDate {
     display: none;
+}
+
+.note-div {
+    background-color: rgb(43, 228, 190);
+}
+
+.note-div : hover {
+    box-shadow: 0 8px 16px 0 );
 }
 
 /*Styling the tabs***********************************/

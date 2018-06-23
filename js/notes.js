@@ -6,7 +6,7 @@ createNoteBtn = document.getElementById("create-note");
 
 cancelBtn = document.getElementById("cancel");
 let noteSubmit = document.getElementById("noteSubmit");
-document.getElementById("noteDate").value = new Date();
+let today = new Date();
 
 addNoteBtn.onclick = function() {
     modal.style.display = "block";
@@ -25,6 +25,10 @@ noteSubmit.onsubmit = function(e) {
     // for the moment multiple labels aren't handled
     let noteLabel = document.getElementById("add-labels").value;
     let noteDate = document.getElementById("noteDate").value;
+    let monthNames = [ "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December" ];
+    noteDate = today.getDate() + " " + monthNames[today.getMonth()] + " " + today.getFullYear();
+
     let note = {
         title: noteTitle,
         score: noteScore,
@@ -36,6 +40,8 @@ noteSubmit.onsubmit = function(e) {
     saveNote(note);
     // TODO display the note in the notes page
     // creating the note
+    let date = document.getElementById("date");
+    date.innerHTML = noteDate;
     let t = document.createElement("h3");
     let titleText = document.createTextNode(noteTitle);
     t.id = "note-title";
@@ -70,9 +76,6 @@ noteSubmit.onsubmit = function(e) {
     deleteBtn.appendChild(dlt);
     deleteBtn.id = "delete-btn";
     deleteBtn.type = "button";
-    deleteBtn.addEventListener("click", function(){
-      document.getElementById("new-note").innerHTML = " ";
-  })
     let footer = document.createElement("footer");
     footer.id = "note-footer";
     footer.appendChild(g);
@@ -90,6 +93,7 @@ noteSubmit.onsubmit = function(e) {
     // TODO update the goals page: 1/update the goals line chart 2/if a goal is created on the fly from the notes page while creating a new note add the new goal to the goals page and the goals array in the localStorage
     // hide modal
     modal.style.display = "none";
+    fetchNotes(note);
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -98,7 +102,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
 
 // saving the note
 function saveNote(note){
@@ -113,10 +116,20 @@ function saveNote(note){
 }
 
 //fetch saved notes
-function fetchNotes(){
+function fetchNotes(note){
     //get notes details from localStorage
     let notes = JSON.parse(localStorage.getItem('notes'));
     for (i=0; i < notes.length; i++){
-        var title = notes[i].title;
+        let title = notes[i].title;
+        let cell = document.getElementById(notes[i].date);
+        console.log(cell);
+        //if calendar cell id matches note date
+        if (cell.getAttribute("id") == notes[i].date) {
+            console.log(cell);
+            const noteItem = document.createElement("div");
+            noteItem.setAttribute("class", "note-div");
+            noteItem.innerHTML = title;
+            cell.appendChild(noteItem);
+        }
     }
 }

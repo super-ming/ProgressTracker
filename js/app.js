@@ -6,9 +6,9 @@ let currentMonth = monthNum.getMonth();
 let displayDate = monthNum;
 let monthPrevious = document.getElementsByClassName("prev")[0];
 let monthForward = document.getElementsByClassName("next")[0];
-let cellId = thisMonth.innerHTML;
 
 thisMonth.innerHTML = monthArray[currentMonth] + ' ' + monthNum.getFullYear();
+
 //Build the calendar grid
 function makeGrid() {
     //set the first day of month as 1
@@ -17,7 +17,7 @@ function makeGrid() {
     let lastDay = new Date(displayDate.getFullYear(),displayDate.getMonth()+1,0);
     var dayOfWeek = firstDay.getDay();
     let day = firstDay.getDate();
-    cellId = cellId+"-"+day;
+    let cellId = thisMonth.innerHTML;
     let count = 0;
     let week = 0;
     for(let i=0; i<5; i++){
@@ -27,16 +27,17 @@ function makeGrid() {
         for(let j=0; j<7; j++){
             const td = document.createElement('td');
             tr.appendChild(td);
+            td.setAttribute('class', 'cell');
             count++;
             //Start adding day numbers on the first day of the current month
             if ((week == 1 && count >= dayOfWeek+1)) {
                 td.innerHTML = day;
-                td.setAttribute('id', cellId);
+                td.setAttribute('id', day + " " + cellId);
                 day++;
             } else if (week > 1 && count <= lastDay.getDate()){
                 count = day;
                 td.innerHTML = day;
-                td.setAttribute('id', cellId);
+                td.setAttribute('id', day + " " + cellId);
                 day++;
             }
 
@@ -50,10 +51,11 @@ function makeGrid() {
         for(let s=0; s<7; s++){
             const td = document.createElement('td');
             tr.appendChild(td);
+            td.setAttribute('class', 'cell');
             if (day < lastDay.getDate()){
                 day++;
                 td.innerHTML = day;
-                td.setAttribute('id', cellId);
+                td.setAttribute('id', day + " " + cellId);
             }
         }
     }
@@ -89,6 +91,11 @@ function prevMonth() {
   thisMonth.innerHTML = monthArray[currentMonth] + ' ' + monthNum.getFullYear();
   displayDate = new Date(monthNum.getFullYear(),monthNum.getMonth(),1);
   return displayDate;
+}
+
+function addNote() {
+    let noteDate = new Date(monthNum.getDay(), monthNum.getMonth(), monthNum.getFullYear());
+
 }
 
 makeGrid();
