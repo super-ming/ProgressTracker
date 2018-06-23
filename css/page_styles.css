@@ -61,6 +61,7 @@ section{
 
 .note-div {
     background-color: rgb(43, 228, 190);
+    z-index: 1;
 }
 
 .note-div : hover {

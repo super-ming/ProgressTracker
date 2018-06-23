@@ -1,4 +1,4 @@
-modal = document.getElementById("add-note-modal");
+/*modal = document.getElementById("add-note-modal");
 
 addNoteBtn = document.getElementById('add-note-btn');
 
@@ -16,7 +16,7 @@ cancelBtn.onclick = function() {
     modal.style.display = "none";
 }
 
-noteSubmit.onsubmit = function(e) {
+noteSubmit.onsubmit = function createNote(e) {
     e.preventDefault();
     let noteTitle = document.getElementById("title").value;
     let noteScore = document.getElementById("noteScore").value;
@@ -133,3 +133,83 @@ function fetchNotes(note){
         }
     }
 }
+
+function fetchExistingNotes(){
+    let noteTitle = document.getElementById("title").value;
+    let noteScore = document.getElementById("noteScore").value;
+    let noteText = document.getElementById("noteBody").value;
+    let noteGoal = document.getElementById("select-goal").value;
+    // for the moment multiple labels aren't handled
+    let noteLabel = document.getElementById("add-labels").value;
+    let noteDate = document.getElementById("noteDate").value;
+    let monthNames = [ "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December" ];
+    noteDate = today.getDate() + " " + monthNames[today.getMonth()] + " " + today.getFullYear();
+
+    let note = {
+        title: noteTitle,
+        score: noteScore,
+        text: noteText,
+        goal: noteGoal,
+        label: noteLabel,
+        date: noteDate
+    }
+    saveNote(note);
+    // TODO display the note in the notes page
+    // creating the note
+    let date = document.getElementById("date");
+    date.innerHTML = noteDate;
+    let t = document.createElement("h3");
+    let titleText = document.createTextNode(noteTitle);
+    t.id = "note-title";
+    t.appendChild(titleText);
+    let s = document.createElement("h3");
+    s.id = "note-score";
+    let scorevalue = document.createTextNode(noteScore);
+    s.appendChild(scorevalue);
+    let header = document.createElement("header");
+    header.id = "note-header";
+    header.appendChild(t);
+    header.appendChild(s);
+    let noteBody = document.createElement("p");
+    noteBody.id = "note-body";
+    let p = document.createTextNode(noteText);
+    noteBody.appendChild(p);
+    let g = document.createElement("p");
+    let goalName = document.createTextNode(noteGoal);
+    g.appendChild(goalName);
+    g.id = "note-goal";
+    let l = document.createElement("p");
+    let labelName = document.createTextNode(noteLabel);
+    l.appendChild(labelName);
+    l.id = "note-label";
+    let editBtn = document.createElement("button");
+    let edit = document.createTextNode("edit note");
+    editBtn.appendChild(edit);
+    editBtn.id = "edit-btn";
+    editBtn.type = "button";
+    let deleteBtn = document.createElement("button");
+    let dlt = document.createTextNode("delete note");
+    deleteBtn.appendChild(dlt);
+    deleteBtn.id = "delete-btn";
+    deleteBtn.type = "button";
+    let footer = document.createElement("footer");
+    footer.id = "note-footer";
+    footer.appendChild(g);
+    footer.appendChild(l);
+    footer.appendChild(editBtn);
+    footer.appendChild(deleteBtn);
+    let newNote = document.createElement("div");
+    newNote.id = "new-note";
+    newNote.appendChild(header);
+    newNote.appendChild(noteBody);
+    newNote.appendChild(footer);
+    let notesPage = document.getElementById("notes-page");
+    notesPage.appendChild(newNote);
+    // TODO update the labels list in the notes.html
+    // TODO update the goals page: 1/update the goals line chart 2/if a goal is created on the fly from the notes page while creating a new note add the new goal to the goals page and the goals array in the localStorage
+    // hide modal
+    modal.style.display = "none";
+    fetchNotes(note);
+};
+*/
