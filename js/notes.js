@@ -70,6 +70,9 @@ noteSubmit.onsubmit = function(e) {
     deleteBtn.appendChild(dlt);
     deleteBtn.id = "delete-btn";
     deleteBtn.type = "button";
+    deleteBtn.addEventListener("click", function(){
+      document.getElementById("new-note").innerHTML = " ";
+  })
     let footer = document.createElement("footer");
     footer.id = "note-footer";
     footer.appendChild(g);
@@ -96,6 +99,7 @@ window.onclick = function(event) {
     }
 }
 
+
 // saving the note
 function saveNote(note){
     let notes = [];
@@ -114,6 +118,5 @@ function fetchNotes(){
     let notes = JSON.parse(localStorage.getItem('notes'));
     for (i=0; i < notes.length; i++){
         var title = notes[i].title;
-
     }
 }
