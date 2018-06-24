@@ -84,7 +84,7 @@ td{
 }
 
 td:hover{
-    background: gray;
+    background: rgba(24, 24, 22, 0.31);
 }
 
 /* Header */

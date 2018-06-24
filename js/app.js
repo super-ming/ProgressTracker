@@ -8,7 +8,8 @@ createNoteBtn = document.getElementById("create-note");
 cancelBtn = document.getElementById("cancel");
 let noteSubmit = document.getElementById("noteSubmit");
 let today = new Date();
-
+let editNoteBtn = document.getElementById('edit-btn');
+let deleteNoteBtn = document.getElementById('delete-btn');
 addNoteBtn.onclick = function() {
     modal.style.display = "block";
 }
@@ -17,7 +18,7 @@ cancelBtn.onclick = function() {
     modal.style.display = "none";
 }
 
-noteSubmit.onsubmit = function (e) {
+noteSubmit.onsubmit = function(e) {
     e.preventDefault();
     let noteTitle = document.getElementById("title").value;
     let noteScore = document.getElementById("noteScore").value;
@@ -123,10 +124,11 @@ function fetchNotes(){
     for (i=0; i < notes.length; i++){
         let title = notes[i].title;
         let cell = document.getElementById(notes[i].date);
-        //if calendar cell id matches note date
+        //empty the cell
         while (cell.firstChild) {
             cell.removeChild(cell.firstChild);
         }
+        //if calendar cell id matches note date, add note title to cell
         if (cell.getAttribute("id") == notes[i].date) {
             const noteItem = document.createElement("div");
             noteItem.setAttribute("class", "note-div");
@@ -218,6 +220,11 @@ function fetchExistingNotes(){
     }
 
 };
+
+function editNote(){
+
+
+}
 
 //Calendar scripts
 
