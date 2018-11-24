@@ -1,8 +1,11 @@
 //Note scripts
 modal = document.getElementById("add-note-modal");
 
+
+//TODO find add-note-btn
 addNoteBtn = document.getElementById('add-note-btn');
 
+//TODO find create-note element
 createNoteBtn = document.getElementById("create-note");
 
 cancelBtn = document.getElementById("cancel");
